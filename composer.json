@@ -1,5 +1,5 @@
 {
-    "name": "WebScraperIO/LaravelDataImporter",
+    "name": "webscraperio/laravel-data-importer",
     "type": "library",
     "description": "Import data from webscraper.io into database",
     "keywords": [
