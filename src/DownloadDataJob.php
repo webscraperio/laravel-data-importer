@@ -1,6 +1,6 @@
 <?php
 
-namespace WebScraperIO\LaravelDataImporter;
+namespace WebScraper\LaravelDataImporter;
 
 use \DB;
 use \Log;

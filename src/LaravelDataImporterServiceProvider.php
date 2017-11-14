@@ -1,6 +1,6 @@
 <?php
 
-namespace WebScraperIO\LaravelDataImporter;
+namespace WebScraper\LaravelDataImporter;
 
 use Illuminate\Support\ServiceProvider;
 

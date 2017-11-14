@@ -1,7 +1,7 @@
 <?php
 
 
-namespace WebScraperIO\LaravelDataImporter;
+namespace WebScraper\LaravelDataImporter;
 
 
 class DataParser {
