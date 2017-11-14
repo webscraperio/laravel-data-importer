@@ -14,10 +14,14 @@ class LaravelDataImporterServiceProvider extends ServiceProvider {
 	public function boot() {
 
 		$this->loadRoutesFrom(__DIR__ . '/routes.php');
-//		$this->loadMigrationsFrom(__DIR__ . '/migrations');
+
 		$this->publishes([
 			__DIR__ . '/migrations' => database_path('migrations'),
 		], 'migrations');
+
+		$this->publishes([
+			__DIR__.'/config/webscraperio-data-importer.php' => config_path('webscraperio-data-importer.php')
+		], 'config');
 	}
 
 	/**
