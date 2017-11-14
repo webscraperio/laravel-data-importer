@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Import data from webscraper.io into database",
     "keywords": [
-        "WebScraperIO",
+        "WebScraper",
         "LaravelDataImporter"
     ],
     "homepage": "https://github.com/webscraperio/webscraper.io-laravel-data-importer",
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "WebScraperIO\\LaravelDataImporter\\": "src"
+            "WebScraper\\LaravelDataImporter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "WebScraperIO\\LaravelDataImporter\\": "tests"
+            "WebScraper\\LaravelDataImporter\\": "tests"
         }
     },
     "scripts": {
