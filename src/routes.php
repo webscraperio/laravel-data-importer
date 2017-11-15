@@ -14,7 +14,7 @@ Route::post('/handle-web-scraper-io-notification/{accessToken}', function (Illum
 
 	// only import sitemaps that match predefined prefix
 	$prefix = config("webscraperio-data-importer.import_sitemap_prefix");
-	if(strpos($sitemapName, $prefix) !== 0) {
+	if(strlen($prefix) > 0 && strpos($sitemapName, $prefix) !== 0) {
 		return "skipped";
 	}
 
