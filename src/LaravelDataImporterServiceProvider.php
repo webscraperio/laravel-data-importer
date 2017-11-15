@@ -22,6 +22,10 @@ class LaravelDataImporterServiceProvider extends ServiceProvider {
 		$this->publishes([
 			__DIR__.'/config/webscraperio-data-importer.php' => config_path('webscraperio-data-importer.php')
 		], 'config');
+
+		$this->publishes([
+			__DIR__.'/models/ScrapedRecord.php' => app_path('ScrapedRecord.php')
+		], 'models');
 	}
 
 	/**
