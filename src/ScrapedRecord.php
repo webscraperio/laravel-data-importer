@@ -11,6 +11,6 @@ class ScrapedRecord extends Model {
 	public $timestamps = false;
 
 	protected $casts = [
-		'data' => 'array',
+		'data' => 'object',
 	];
 }
