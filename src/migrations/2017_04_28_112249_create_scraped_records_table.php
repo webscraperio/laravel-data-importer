@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDataScrapedTable extends Migration {
+class CreateScrapedRecordsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDataScrapedTable extends Migration {
 	 */
 	public function up() {
 
-		Schema::create('data_scraped', function (Blueprint $table) {
+		Schema::create('scraped_records', function (Blueprint $table) {
 
 			$table->bigIncrements('id');
 			$table->integer('scrapingjob_id');
@@ -36,6 +36,6 @@ class CreateDataScrapedTable extends Migration {
 	 */
 	public function down() {
 
-		Schema::drop("data_scraped");
+		Schema::drop("scraped_records");
 	}
 }

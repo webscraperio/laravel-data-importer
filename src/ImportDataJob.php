@@ -49,7 +49,7 @@ class ImportDataJob implements ShouldQueue {
 			$sitemapId = $this->sitemapId;
 			$insertBatchLimit = $this->insertBatchLimit;
 
-			$records = DB::table('data_scraped')
+			$records = DB::table('scraped_records')
 				->where('scrapingjob_id', $scrapingJobId)
 				->get();
 

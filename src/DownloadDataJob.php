@@ -13,7 +13,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 /**
- * Downloads and stores data in data_scraped table
+ * Downloads and stores data in scraped_records table
  * @package App\Jobs
  */
 class DownloadDataJob implements ShouldQueue {
@@ -73,11 +73,11 @@ class DownloadDataJob implements ShouldQueue {
 	public function deleteOldData() {
 
 		$scrapingJobId = $this->scrapingJobId;
-		$oldDataColumntCount = DB::table('data_scraped')->where('scrapingjob_id', $scrapingJobId)->count();
+		$oldDataColumntCount = DB::table('scraped_records')->where('scrapingjob_id', $scrapingJobId)->count();
 
 		if ($oldDataColumntCount > 0) {
 			Log::notice("Overwriting old data", ['scrapingJobId' => $scrapingJobId]);
-			DB::table('data_scraped')->where('scrapingjob_id', $scrapingJobId)->delete();
+			DB::table('scraped_records')->where('scrapingjob_id', $scrapingJobId)->delete();
 		}
 	}
 
@@ -140,11 +140,11 @@ class DownloadDataJob implements ShouldQueue {
 			];
 
 			if (count($insertData) >= $insertBatchLimit) {
-				DB::table('data_scraped')->insert($insertData);
+				DB::table('scraped_records')->insert($insertData);
 				$insertData = [];
 			}
 		}
-		DB::table('data_scraped')->insert($insertData);
+		DB::table('scraped_records')->insert($insertData);
 		Log::debug("Data insert completed", ['scrapingJobId' => $scrapingJobId]);
 	}
 
