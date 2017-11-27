@@ -154,11 +154,13 @@ class DownloadDataJob implements ShouldQueue {
 	public function deleteScrapingJob() {
 
 		$scrapingJobId = $this->scrapingJobId;
-		$client = $this->getApiClient();
 		$deleteScrapingJob = config("webscraperio-data-importer.delete_scrapingjobs");
 		if ($deleteScrapingJob) {
-			Log::debug("Deleting scraping job", ['scrapingJobId' => $scrapingJobId]);
-			$client->deleteScrapingJob($scrapingJobId);
+
+			// schedule data deletion as a delayed job
+			$job = new DeleteScrapingJobDataJob($scrapingJobId, $this->sitemapName, $this->sitemapId);
+			$job->delay(60 * 60 * 24);
+			dispatch($job);
 		}
 	}
 
