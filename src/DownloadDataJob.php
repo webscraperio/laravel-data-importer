@@ -120,8 +120,16 @@ class DownloadDataJob implements ShouldQueue {
 		// import records in batches
 		foreach ($records as $record) {
 
-			$webScraperOrder = $record[$webScraperOrderKey];
-			unset($record[$webScraperOrderKey]);
+			// @TODO simply skip bom when reading first line
+			if(isset($record[$webScraperOrderKey])) {
+				$webScraperOrder = $record[$webScraperOrderKey];
+				unset($record[$webScraperOrderKey]);
+			}
+			else {
+				$webScraperOrder = $record["web-scraper-order"];
+				unset($record["web-scraper-order"]);
+			}
+
 
 			// replace "null" values with null
 			foreach ($record as $key => $value) {
