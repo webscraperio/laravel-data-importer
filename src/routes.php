@@ -19,7 +19,8 @@ Route::post('/handle-web-scraper-io-notification/{accessToken}', function (Illum
 	}
 
 	// dispatch a sitemap import job
-	$job = new WebScraper\LaravelDataImporter\DownloadDataJob($scrapingJobId, $sitemapName, $sitemapId);
+	$downloadClassname = config('webscraperio-data-importer.data_download_job_classname');
+	$job = new $downloadClassname($scrapingJobId, $sitemapName, $sitemapId);
 	dispatch($job);
 
 	return "ok";
