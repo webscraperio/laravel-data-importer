@@ -1,4 +1,4 @@
-# WebScraper.io Laravel data importer
+# WebScraper.io Laravel data importer (Package is no longer maintained)
 
 ## Install
 
